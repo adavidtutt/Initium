@@ -14,8 +14,10 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.65}/* remove all link underlines sitewide */
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.65}/* remove all link underlines sitewide & unify inline link look */
 a, a:visited, a:hover, a:active{color:var(--fg);text-decoration:none}
+p a, .section-sub a, .small a{border-bottom:none;text-decoration:none}
+p a:hover, .section-sub a:hover, .small a:hover{opacity:.9}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
@@ -26,18 +28,18 @@ a, a:visited, a:hover, a:active{color:var(--fg);text-decoration:none}
 /* masthead banner */
 .masthead{border-bottom:1px solid var(--line);text-align:center;padding:14px 20px;font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 
-/* Buttons (all outline by default) */
-a.btn{display:inline-block;padding:.82rem 1.1rem;border:1px solid var(--royal);border-radius:12px;font-weight:600;letter-spacing:.02em;transition:.25s ease;background:transparent;color:var(--fg)}
-a.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
-a.btn-primary{border-color:var(--royal);background:transparent;color:var(--fg)} /* force outline */
-a.btn-ghost{border-color:var(--royal);background:transparent;color:var(--fg)}
+/* Buttons (force outline-only everywhere) */
+.btn, a.btn{display:inline-block;padding:.82rem 1.1rem;border:1px solid var(--royal);border-radius:12px;font-weight:600;letter-spacing:.02em;transition:.25s ease;background:transparent !important;color:var(--fg)}
+.btn:hover, a.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.btn-primary, a.btn-primary{border-color:var(--royal);background:transparent !important;color:var(--fg)}
+.btn-ghost, a.btn-ghost{border-color:var(--royal);background:transparent !important;color:var(--fg)}
 
 .container{max-width:1120px;margin:0 auto;padding:0 20px}
 
 /* HERO */
 header.hero{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 1rem 3rem}
 .hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(44px,7vw,96px);line-height:1.02;margin:0 0 .35em;letter-spacing:-.008em}
-.hero h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--muted);font-size:clamp(16px,2.6vw,22px);margin:0 0 2rem;letter-spacing:.01em}
+.hero h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--muted);font-size:clamp(16px,2.6vw,22px);margin:0 0 2rem;letter-spacing:.01em;font-style:italic}
 .hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
 
 section{padding:64px 0;border-top:1px solid var(--line)}
@@ -70,6 +72,15 @@ footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
   <nav class="nav">
     <div class="inner">
       <div class="brand">BFD</div>
+      <div>
+        <a href="#origin">Monologue</a>
+        <a href="#donate">Donate</a>
+        <a href="#astronaut">Astronaut</a>
+        <a href="#mission">Mission</a>
+        <a href="#naming">Legacy</a>
+        <a href="#support">Support</a>
+      </div>
+    </div>
       <div>
         <a href="#origin">Monologue</a>
         <a href="#donate">Donate</a>
@@ -175,7 +186,18 @@ footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
   </section>  <!-- MISSION SUMMARY -->  <section id="mission">
     <div class="container">
       <div class="section-title">The Mission</div>
-      <p class="section-sub">Heretic 1 is an uncrewed, privately built, trans‑planetary‑class rocket. The core engine cluster, Belka (5×50 kN), drives Stage 1; upper stages use a 20 kN and a 10 kN vacuum engine. Payloads include six micro‑greenhouses representing Earth’s continents, a two‑stage Mars Ascent Vehicle, and an Earth Entry Vehicle to return Martian regolith and, in future missions, selected artifacts. The objective: prove that one shop, with enough discipline and support, can design, build, fire, and fly a mission that moves culture forward.</p>
+      <div class="card">
+        <div class="poem">
+          <span class="line">Heretic 1 is the first privately built, uncrewed, trans‑planetary‑class rocket.</span>
+          <span class="line">Stage 1: Belka — five engines, 50 kN each.</span>
+          <span class="line">Upper stages: vacuum engines at 20 kN and 10 kN.</span>
+          <span class="line">Payload: six Earth‑life micro‑greenhouses.</span>
+          <span class="line">A Mars Ascent Vehicle.</span>
+          <span class="line">An Earth Entry Vehicle.</span>
+          <span class="line">Objective: return Martian regolith to Earth.</span>
+          <span class="line">Proof: one shop, with enough discipline and support, can design, build, fire, and fly the future.</span>
+        </div>
+      </div>
     </div>
   </section>  <!-- DONATE -->  <section id="donate">
     <div class="container">
@@ -342,14 +364,4 @@ footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
           <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Request%20Wire%2FACH%20Instructions&body=Amount%3A%0APurpose%20%28General%2FNaming%29%3A%0AName%3A%0ACity%2FState%3A">Request Instructions</a>
         </div>
         <div class="card stack">
-          <h3>Crypto</h3>
-          <p class="muted">USDC, ETH, BTC. We can provide wallets upon request.</p>
-          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Crypto%20Transfer&body=Amount%3A%0AToken%3A%0ANetwork%3A%0AName%3A">Get Wallets</a>
-        </div>
-        <div class="card stack">
-          <h3>In‑Kind Support</h3>
-          <p class="muted">Tools, materials, consumables, shop space. We'll route to suppliers where possible.</p>
-          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=In‑Kind%20Support&body=Item%2FService%3A%0AQuantity%3A%0ASupplier%20%28if%20known%29%3A%0ANote%3A">Offer Support</a>
-        </div>
-        <div class="card stack">
-          <h3>Accredite
+       
