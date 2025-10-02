@@ -3,45 +3,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Black Flag Discovery – Heretic 1</title>
-  <!-- Fonts: sleek + professional -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts: editorial runway headline + precision body -->
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#000; --fg:#f5f5f5; --muted:#9a9a9a; --card:#0f0f0f; --line:#1a1a1a; --accent:#e11d48; --accent-2:#7c3aed;
+      --bg:#000; --fg:#f5f5f5; --muted:#a8a8a8; --card:#0a0a0a; --line:rgba(255,255,255,.07);
+      --accent:#e11d48; /* crimson */
+      --royal:#5a2ea6; /* royal purple for buttons */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
     a{color:var(--fg);text-decoration:none}
-    a.btn{display:inline-block;padding:.85rem 1.25rem;border:1px solid var(--fg);border-radius:10px;font-weight:600;letter-spacing:.02em;transition:.2s ease;}
-    a.btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,255,255,.08)}
+    /* Buttons */
+    a.btn{display:inline-block;padding:.8rem 1.15rem;border:1px solid var(--line);border-radius:12px;font-weight:600;letter-spacing:.02em;transition:.25s ease;backdrop-filter:saturate(120%)}
+    a.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.6)}
     a.btn-primary{border-color:var(--accent);background:var(--accent);color:#fff}
-    a.btn-secondary{border-color:var(--accent-2);background:var(--accent-2);color:#fff}
-    .container{max-width:1120px;margin:0 auto;padding:0 20px}
-    header.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 1rem 4rem}
-    .hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,7vw,84px);line-height:1.05;margin:0 0 .25em;letter-spacing:-.01em}
-    .nowrap{white-space:nowrap}
-    .hero h2{font-weight:300;color:var(--muted);font-size:clamp(16px,2.6vw,22px);margin:0 0 2rem}
-    .hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}section{padding:56px 0;border-top:1px solid var(--line)}
-.section-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(22px,3.2vw,34px);letter-spacing:.02em;margin:0 0 18px}
-.section-sub{color:var(--muted);max-width:760px}
+    a.btn-secondary{border-color:var(--royal);background:var(--royal);color:#fff}.container{max-width:1120px;margin:0 auto;padding:0 20px}
+header.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 1rem 4rem}
+.hero h1{font-family:'Bodoni Moda',serif;font-weight:700;font-size:clamp(44px,7vw,96px);line-height:1.02;margin:0 0 .35em;letter-spacing:.01em}
+.nowrap{white-space:nowrap}
+.hero h2{font-family:'Bodoni Moda',serif;font-weight:500;color:var(--muted);font-size:clamp(16px,2.6vw,22px);margin:0 0 2rem;letter-spacing:.02em}
+.hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
 
-.mono{background:var(--bg)}
-.mono .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
-.mono p{white-space:pre-line;margin:0;font-size:clamp(15px,2.4vw,18px)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+.section-title{font-family:'Bodoni Moda',serif;font-weight:700;font-size:clamp(22px,3.2vw,36px);letter-spacing:.02em;margin:0 0 18px}
+.section-sub{color:var(--muted);max-width:780px}
 
-.tiers .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
-.card h3{margin:.1rem 0 .5rem;font-size:1.05rem}
+/* Monologue as poetry: each sentence per line */
+.mono .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+.poem{font-size:clamp(15px,2.2vw,18px);}
+.poem .line{display:block;margin:.25rem 0;line-height:1.85}
+
+/* Grid + cards with fine lines */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{margin:.1rem 0 .5rem;font-size:1.06rem;font-weight:700;font-family:'Inter',sans-serif}
 .price{font-weight:800;font-size:1.15rem;margin:.25rem 0 .5rem}
 .muted{color:var(--muted)}
 
 .namegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-
 .flex{display:flex;gap:.5rem;flex-wrap:wrap}
 .stack{display:flex;flex-direction:column;gap:.6rem}
 
-footer{padding:40px 0;color:#777;text-align:center;font-size:.9rem}
+footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
 .small{font-size:.9rem;color:var(--muted)}
 
   </style>
@@ -50,52 +55,89 @@ footer{padding:40px 0;color:#777;text-align:center;font-size:.9rem}
   <header class="hero">
     <div class="container">
       <h1>
-        <span class="nowrap">Ex Igne,</span><br/>
+        <span class="nowrap">Ex Igne</span><br/>
         <span class="nowrap">Ad Astra</span>
       </h1>
       <h2>From Fire, The Stars.</h2>
       <div class="cta">
         <a href="#donate" class="btn btn-primary">Support the Mission</a>
-        <a href="#naming" class="btn">Claim a Name</a>
+        <a href="#naming" class="btn btn-secondary">Claim a Name</a>
       </div>
     </div>
   </header>  <section class="mono" id="origin">
     <div class="container">
       <div class="section-title">The Origin</div>
       <div class="card">
-        <p>I don’t come from aerospace.
-I come from punishment.
-From hardships most can't imagine.
-I come from fire.I was born in the shop. I learned how to build anything. To fix anything. To make anything better than it was before.
+        <div class="poem">
+          <span class="line">I don’t come from aerospace.</span>
+          <span class="line">I come from punishment.</span>
+          <span class="line">From hardships most can't imagine.</span>
+          <span class="line">I come from fire.</span><span class="line">I was born in the shop.</span>
+      <span class="line">I learned how to build anything.</span>
+      <span class="line">To fix anything.</span>
+      <span class="line">To make anything better than it was before.</span>
 
-I was forged on the road. It's more home than home. NHRA, CARS, ARCA/CRA, UMP. Blacktop and dirt. Isolation. Failure in front of millions. Pain. And pleasure.
+      <span class="line">I was forged on the road.</span>
+      <span class="line">It's more home than home.</span>
+      <span class="line">NHRA, CARS, ARCA/CRA, UMP.</span>
+      <span class="line">Blacktop and dirt.</span>
+      <span class="line">Isolation.</span>
+      <span class="line">Failure in front of millions.</span>
+      <span class="line">Pain.</span>
+      <span class="line">And pleasure.</span>
 
-I know what it takes to earn respect of competitors. Men and women I grew up idolizing on television. Men and women who watched me work so fucking hard They called me Team No Sleep. Team Animal.
+      <span class="line">I know what it takes to earn respect of competitors.</span>
+      <span class="line">Men and women I grew up idolizing on television.</span>
+      <span class="line">Men and women who watched me work so fucking hard</span>
+      <span class="line">They called me Team No Sleep.</span>
+      <span class="line">Team Animal.</span>
 
-I was the one who stayed up all night at the track— While they slept.
+      <span class="line">I was the one who stayed up all night at the track—</span>
+      <span class="line">While they slept.</span>
 
-The one who would not stop.
+      <span class="line">The one who would not stop.</span>
 
-I know hardship by my own hand. I know failure of myself. I know loss on a scale I wish upon no one. I know the very edges of what humanity—and this life—have to offer. I know success. I know the fire. I have a habit of making my dreams come true. That’s why this is possible for me.
+      <span class="line">I know hardship by my own hand.</span>
+      <span class="line">I know failure of myself.</span>
+      <span class="line">I know loss on a scale I wish upon no one.</span>
+      <span class="line">I know the very edges of what humanity—and this life—have to offer.</span>
+      <span class="line">I know success.</span>
+      <span class="line">I know the fire.</span>
+      <span class="line">I have a habit of making my dreams come true.</span>
+      <span class="line">That’s why this is possible for me.</span>
 
-I know how to take a dream and manifest it— To make it an emergent property of materials and sheer fucking will. I know how to make a man survive anything. I can do anything.
+      <span class="line">I know how to take a dream and manifest it—</span>
+      <span class="line">To make it an emergent property of materials and sheer fucking will.</span>
+      <span class="line">I know how to make a man survive anything.</span>
+      <span class="line">I can do anything.</span>
 
-This is the first solo-designed, solo-built, trans-planetary-class rocket engine. Conceived by me. Built with my own hands.
+      <span class="line">This is the first solo-designed, solo-built, trans-planetary-class rocket engine.</span>
+      <span class="line">Conceived by me.</span>
+      <span class="line">Built with my own hands.</span>
 
-This is the first private design and build of a trans-planetary-class rocket— Born in the void between love and rage.
+      <span class="line">This is the first private design and build of a trans-planetary-class rocket—</span>
+      <span class="line">Born in the void between love and rage.</span>
 
-This is the first fully private mission of its kind. This is my legacy.
+      <span class="line">This is the first fully private mission of its kind.</span>
+      <span class="line">This is my legacy.</span>
 
-This engine is Belka. This rocket is Heretic. This company is Black Flag Discovery. The payload is Earth life.
+      <span class="line">This engine is Belka.</span>
+      <span class="line">This rocket is Heretic.</span>
+      <span class="line">This company is Black Flag Discovery.</span>
+      <span class="line">The payload is Earth life.</span>
 
-And we are going to Mars.
+      <span class="line">And we are going to Mars.</span>
 
-Ex Igne Ad Astra — From Fire, The Stars.
+      <span class="line">Ex Igne Ad Astra — From Fire, The Stars.</span>
 
-I am Alexander David Tutt. Join me.</p> </div> </div>
+      <span class="line">I am Alexander David Tutt.</span>
+      <span class="line">Join me.</span>
+    </div>
+  </div>
+</div>
 
   </section>  <section id="donate">
-    <div class="container tiers">
+    <div class="container">
       <div class="section-title">Fuel the Fire</div>
       <p class="section-sub">One-time and weekly options. Links are live placeholders—replace with your Stripe Payment Links.</p>
       <div class="grid">
@@ -149,11 +191,11 @@ I am Alexander David Tutt. Join me.</p> </div> </div>
   </section>  <section id="astronaut">
     <div class="container">
       <div class="section-title">Build the First Astronaut</div>
-      <p class="section-sub">This mission is uncrewed. The company builds more than hardware—we build flight people. Every team member must become flight-rated. I set the standard first. Until a public BOM is live, you can support the human-side development here.</p>
+      <p class="section-sub">This mission is uncrewed. We don’t only build flight hardware—we build astronauts. From day one, every teammate trains toward flight‑rating. I hold the line first. Until the public BOM is live, you can support the human build here.</p>
       <div class="grid">
         <div class="card stack">
           <h3>Feed the Flight Crew</h3>
-          <div class="price">$30</div>
+          <div class="price">$30 / day</div>
           <div class="flex">
             <a class="btn" href="https://buy.stripe.com/REPLACE_FEED_ONETIME">One-time</a>
             <a class="btn" href="https://buy.stripe.com/REPLACE_FEED_WEEKLY">Weekly</a>
@@ -162,32 +204,24 @@ I am Alexander David Tutt. Join me.</p> </div> </div>
         </div>
         <div class="card stack">
           <h3>Vitals & Baseline</h3>
-          <div class="price">$50</div>
+          <div class="price">$100 / day</div>
           <div class="flex">
             <a class="btn" href="https://buy.stripe.com/REPLACE_VITALS_ONETIME">One-time</a>
             <a class="btn" href="https://buy.stripe.com/REPLACE_VITALS_WEEKLY">Weekly</a>
           </div>
-          <div class="muted">Supplements, sleep, basic labs.</div>
-        </div>
-        <div class="card stack">
-          <h3>Mission-Ready</h3>
-          <div class="price">$100</div>
-          <div class="flex">
-            <a class="btn" href="https://buy.stripe.com/REPLACE_READY_ONETIME">One-time</a>
-            <a class="btn" href="https://buy.stripe.com/REPLACE_READY_WEEKLY">Weekly</a>
-          </div>
-          <div class="muted">Full day baseline for training trajectory.</div>
+          <div class="muted">Fuel + vitamins + small essentials to keep the system sharp.</div>
         </div>
         <div class="card stack">
           <h3>Train the Astronaut</h3>
-          <div class="price">$200</div>
+          <div class="price">$200 / day</div>
           <div class="flex">
             <a class="btn" href="https://buy.stripe.com/REPLACE_TRAIN_ONETIME">One-time</a>
             <a class="btn" href="https://buy.stripe.com/REPLACE_TRAIN_WEEKLY">Weekly</a>
           </div>
-          <div class="muted">Coaching, recovery, testing—human hardware.</div>
+          <div class="muted">Coaching, recovery, and applied practice—human hardware.</div>
         </div>
       </div>
+      <p class="small" style="margin-top:14px">Coming soon: monthly line items for labs/testing, quiet & care (housing/health/phone/services), and flight training. Until then, <a href="mailto:contact@igne.dev?subject=Sponsor%20a%20Specific%20Item&body=Item%20you%20want%20to%20cover%3A%0AOne-time%20or%20recurring%3A%0ANote%3A">sponsor a specific item</a>.</p>
     </div>
   </section>  <section id="access">
     <div class="container">
