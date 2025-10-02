@@ -14,24 +14,29 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.65}/* NAV */
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.65}/* remove all link underlines sitewide */
+a, a:visited, a:hover, a:active{color:var(--fg);text-decoration:none}
+
+/* NAV */
 .nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 .nav .inner{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.02em}
-.nav a{color:var(--fg);text-decoration:none;margin-left:18px;font-size:.95rem}
+.nav a{margin-left:18px;font-size:.95rem}
 
-/* Buttons */
-a.btn{display:inline-block;padding:.82rem 1.1rem;border:1px solid var(--royal);border-radius:12px;font-weight:600;letter-spacing:.02em;transition:.25s ease}
-a.btn:hover{transform:translateY(-1px)}
-a.btn-primary{background:var(--royal);color:#fff}
-a.btn-ghost{background:transparent;color:var(--fg)}
+/* masthead banner */
+.masthead{border-bottom:1px solid var(--line);text-align:center;padding:14px 20px;font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+/* Buttons (all outline by default) */
+a.btn{display:inline-block;padding:.82rem 1.1rem;border:1px solid var(--royal);border-radius:12px;font-weight:600;letter-spacing:.02em;transition:.25s ease;background:transparent;color:var(--fg)}
+a.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+a.btn-primary{border-color:var(--royal);background:transparent;color:var(--fg)} /* force outline */
+a.btn-ghost{border-color:var(--royal);background:transparent;color:var(--fg)}
 
 .container{max-width:1120px;margin:0 auto;padding:0 20px}
 
 /* HERO */
-header.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 1rem 4rem}
+header.hero{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 1rem 3rem}
 .hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(44px,7vw,96px);line-height:1.02;margin:0 0 .35em;letter-spacing:-.008em}
-.nowrap{white-space:nowrap}
 .hero h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--muted);font-size:clamp(16px,2.6vw,22px);margin:0 0 2rem;letter-spacing:.01em}
 .hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
 
@@ -64,7 +69,16 @@ footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
   <!-- NAV -->
   <nav class="nav">
     <div class="inner">
-      <div class="brand">Black Flag Discovery</div>
+      <div class="brand">BFD</div>
+      <div>
+        <a href="#origin">Monologue</a>
+        <a href="#donate">Donate</a>
+        <a href="#astronaut">Astronaut</a>
+        <a href="#mission">Mission</a>
+        <a href="#naming">Legacy</a>
+        <a href="#support">Support</a>
+      </div>
+    </div>
       <div>
         <a href="#origin">Monologue</a>
         <a href="#donate">Donate</a>
@@ -73,12 +87,13 @@ footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
         <a href="#support">Support</a>
       </div>
     </div>
-  </nav>  <!-- HERO -->  <header class="hero">
+  </nav>
+  <!-- MASTHEAD TITLE -->
+  <div class="masthead">Black Flag Discovery</div>
+  <!-- HERO -->
+  <header class="hero">
     <div class="container">
-      <h1>
-        <span class="nowrap">Ex Igne</span><br/>
-        <span class="nowrap">Ad Astra</span>
-      </h1>
+      <h1>Ex Igne Ad Astra</h1>
       <h2>From Fire, The Stars.</h2>
       <div class="cta">
         <a href="#donate" class="btn btn-primary">Support the Mission</a>
@@ -157,6 +172,11 @@ footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
   </div>
 </div>
 
+  </section>  <!-- MISSION SUMMARY -->  <section id="mission">
+    <div class="container">
+      <div class="section-title">The Mission</div>
+      <p class="section-sub">Heretic 1 is an uncrewed, privately built, trans‑planetary‑class rocket. The core engine cluster, Belka (5×50 kN), drives Stage 1; upper stages use a 20 kN and a 10 kN vacuum engine. Payloads include six micro‑greenhouses representing Earth’s continents, a two‑stage Mars Ascent Vehicle, and an Earth Entry Vehicle to return Martian regolith and, in future missions, selected artifacts. The objective: prove that one shop, with enough discipline and support, can design, build, fire, and fly a mission that moves culture forward.</p>
+    </div>
   </section>  <!-- DONATE -->  <section id="donate">
     <div class="container">
       <div class="section-title">Fuel the Fire</div>
@@ -332,17 +352,4 @@ footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
           <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=In‑Kind%20Support&body=Item%2FService%3A%0AQuantity%3A%0ASupplier%20%28if%20known%29%3A%0ANote%3A">Offer Support</a>
         </div>
         <div class="card stack">
-          <h3>Accredited Investors</h3>
-          <p class="muted">506(c) inquiries welcome. State filings may be netted from accepted funds.</p>
-          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Accredited%20Investor%20Inquiry&body=Name%3A%0AState%3A%0AEntity%3A%0AAmount%3A%0ANote%3A">Investor Inquiry</a>
-        </div>
-      </div>
-      <p class="small" style="margin-top:18px">Contributions are not securities. No returns or ownership unless under a separate investor agreement.</p>
-    </div>
-  </section>  <footer>
-    <div class="container">
-      &copy; Black Flag Discovery — All contributions are non‑refundable and not tax‑deductible. This is not a financial product.
-    </div>
-  </footer>
-</body>
-</html>
+          <h3>Accredite
