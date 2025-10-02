@@ -30,34 +30,53 @@
     .brand{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.02em}
     .nav a{margin-left:18px;font-size:.95rem}
 
-    /* Masthead banner */
-    .masthead{border-bottom:1px solid var(--line);text-align:center;padding:14px 20px;
-      font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    /* Masthead banner (bigger) */
+    .masthead{
+      border-bottom:1px solid var(--line);
+      text-align:center;
+      padding:16px 20px;
+      font-family:'Cormorant Garamond',serif;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:clamp(18px,3.2vw,32px);
+    }
 
     /* Buttons: outline-only, couture */
-    .btn, a.btn{display:inline-block;padding:.82rem 1.1rem;border:1px solid var(--royal);border-radius:12px;
-      font-weight:600;letter-spacing:.02em;transition:.25s ease;background:transparent !important;color:var(--fg)}
+    .btn, a.btn{
+      display:inline-block;padding:.82rem 1.1rem;border:1px solid var(--royal);border-radius:12px;
+      font-weight:600;letter-spacing:.02em;transition:.25s ease;background:transparent !important;color:var(--fg)
+    }
     .btn:hover, a.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
     .btn-primary, a.btn-primary{border-color:var(--royal);background:transparent !important;color:var(--fg)}
     .btn-ghost, a.btn-ghost{border-color:var(--royal);background:transparent !important;color:var(--fg)}
 
     .container{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* HERO */
-    header.hero{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 1rem 3rem}
-    .hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(44px,7vw,96px);
-      line-height:1.02;margin:0 0 .35em;letter-spacing:-.008em}
-    .hero h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--muted);font-size:clamp(16px,2.6vw,22px);
-      margin:0 0 2rem;letter-spacing:.01em;font-style:italic}
+    /* HERO (taller so nothing peeks below) */
+    header.hero{
+      min-height:88vh; display:flex; align-items:center; justify-content:center;
+      text-align:center; padding:5rem 1rem 6rem; overflow:hidden;
+    }
+    .hero h1{
+      font-family:'Cormorant Garamond',serif;font-weight:700;
+      font-size:clamp(44px,7vw,96px); line-height:1.02; margin:0 0 .35em; letter-spacing:-.008em
+    }
+    .hero h2{
+      font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--muted);
+      font-size:clamp(16px,2.6vw,22px); margin:0 0 2rem; letter-spacing:.01em; font-style:italic
+    }
     .hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
 
     /* Sections */
     section{padding:64px 0;border-top:1px solid var(--line)}
-    .section-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(22px,3.2vw,36px);
-      letter-spacing:.01em;margin:0 0 18px}
+    .section-title{
+      font-family:'Cormorant Garamond',serif;font-weight:700;
+      font-size:clamp(22px,3.2vw,36px); letter-spacing:.01em; margin:0 0 18px
+    }
     .section-sub{color:var(--muted);max-width:780px}
 
-    /* Poem blocks (monologue & mission) */
+    /* Poem blocks (monologue & mission & work) */
     .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
     .mono .card{padding:30px}
     .poem{font-size:clamp(15px,2.2vw,18px)}
@@ -211,14 +230,29 @@
     <div class="container">
       <div class="section-title">Work With Us</div>
       <div class="card">
-        <p class="section-sub">
-          This isn’t a one-off mission. Black Flag Discovery is building the factories, processes, and IP for a commercial future.
-          We need more than engineers. We need builders. Thinkers. Operators. Auditors. Makers. Sellers. Accountants. Designers. Vendors. People who won’t stop.
-          If you think you’re not “aerospace material,” maybe you are. Let’s talk.
-          Universities, labs, tech-transfer offices—let’s talk. Vendors who want to bid into our supply chain—let’s talk.
-          Everything we build is commercial. Every component has a path to market. Vendors compete for first refusal and long-term commercialization.
-          If you’ve got the portfolio, the will, or the hunger—reach out.
-        </p>
+        <div class="poem">
+          <span class="line">This isn’t a one-off mission.</span>
+          <span class="line">Black Flag Discovery is building the factories, processes, and IP for a commercial future.</span>
+          <span class="line">We need more than engineers.</span>
+          <span class="line">We need builders.</span>
+          <span class="line">Thinkers.</span>
+          <span class="line">Operators.</span>
+          <span class="line">Auditors.</span>
+          <span class="line">Makers.</span>
+          <span class="line">Sellers.</span>
+          <span class="line">Accountants.</span>
+          <span class="line">Designers.</span>
+          <span class="line">Vendors.</span>
+          <span class="line">People who won’t stop.</span>
+          <span class="line">If you think you’re not “aerospace material,” maybe you are.</span>
+          <span class="line">Let’s talk.</span>
+          <span class="line">Universities, labs, tech-transfer offices — let’s talk.</span>
+          <span class="line">Vendors who want to bid into our supply chain — let’s talk.</span>
+          <span class="line">Everything we build is commercial.</span>
+          <span class="line">Every component has a path to market.</span>
+          <span class="line">Vendors compete for first refusal and long-term commercialization.</span>
+          <span class="line">If you’ve got the portfolio, the will, or the hunger — reach out.</span>
+        </div>
         <div class="flex" style="margin-top:14px">
           <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Apply%20to%20Join%20%28Resume%2FPortfolio%29&body=Name%3A%0ARole%20%28or%20what%20you%20do%29%3A%0ALinks%20%28portfolio%2Fgithub%2Fsite%29%3A%0ALocation%3A%0AWhy%20this%20house%3A">Apply to Join</a>
           <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Vendor%20%2F%20University%20Inquiry&body=Organization%3A%0ARole%3A%0AOffer%20%2F%20Capability%3A%0AWebsite%3A%0ANote%3A">Vendor & University Inquiries</a>
@@ -387,4 +421,64 @@
           <p class="muted">Claim a single engine or the full fire.</p>
           <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BBelka%20Engine%5D&body=Single%20or%20Set%3A%0AName%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
         </div>
-        <di
+        <div class="card stack">
+          <h3>MAV (Mars Ascent Vehicle)</h3>
+          <div class="price">$500,000</div>
+          <p class="muted">Carries life and sample up to rendezvous. The ascent begins here.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BMAV%5D&body=Name%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+        <div class="card stack">
+          <h3>Stage 2 / Stage 3 Engines</h3>
+          <div class="price">$250,000 – $500,000</div>
+          <p class="muted">Final burns with names that echo.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BUpper%20Stages%5D&body=Stage%3A%0AName%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT CHANNELS -->
+  <section id="support">
+    <div class="container">
+      <div class="section-title">Serious Support, Serious Channels</div>
+      <p class="section-sub">For contributions above $1,000—especially naming rights or legacy support—we accept bank wires, ACH, FedNow, and crypto (USDC/ETH/BTC). Stripe is used below $1,000 due to fees.</p>
+      <div class="grid">
+        <div class="card stack">
+          <h3>Wire / ACH</h3>
+          <p class="muted">Domestic & international. We'll reply with routing instructions.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Request%20Wire%2FACH%20Instructions&body=Amount%3A%0APurpose%20%28General%2FNaming%29%3A%0AName%3A%0ACity%2FState%3A">Request Instructions</a>
+        </div>
+        <div class="card stack">
+          <h3>Crypto</h3>
+          <p class="muted">USDC, ETH, BTC. We can provide wallets upon request.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Crypto%20Transfer&body=Amount%3A%0AToken%3A%0ANetwork%3A%0AName%3A">Get Wallets</a>
+        </div>
+        <div class="card stack">
+          <h3>In-Kind Support</h3>
+          <p class="muted">Tools, materials, consumables, shop space. We'll route to suppliers where possible.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=In-Kind%20Support&body=Item%2FService%3A%0AQuantity%3A%0ASupplier%20%28if%20known%29%3A%0ANote%3A">Offer Support</a>
+        </div>
+        <div class="card stack">
+          <h3>Accredited Investors</h3>
+          <p class="muted">506(c) inquiries welcome. State filings may be netted from accepted funds.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Accredited%20Investor%20Inquiry&body=Name%3A%0AState%3A%0AEntity%3A%0AAmount%3A%0ANote%3A">Investor Inquiry</a>
+        </div>
+      </div>
+      <p class="small" style="margin-top:18px">Contributions are not securities. No returns or ownership unless under a separate investor agreement.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="border-top:1px solid var(--line);padding-top:12px;margin-top:6px">
+        <a href="https://instagram.com/YOUR_HANDLE" style="color:var(--muted);margin:0 10px">Instagram</a> •
+        <a href="https://www.threads.net/@YOUR_HANDLE" style="color:var(--muted);margin:0 10px">Threads</a>
+      </div>
+      <div style="margin-top:10px">
+        &copy; Black Flag Discovery — All contributions are non-refundable and not tax-deductible. This is not a financial product.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
