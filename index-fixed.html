@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Black Flag Discovery — Heretic 1</title>
+
+  <!-- Fashion-forward type: Cormorant Garamond + Manrope -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#000; --fg:#f5f5f5; --muted:#a8a8a8; --card:#0a0a0a; --line:rgba(255,255,255,.06);
+      --royal:#4B2E83; /* royal purple stroke */
+      --crimson:#E11D48; /* fire, used rarely */
+      --navH:64px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
+
+    /* remove underlines everywhere */
+    a, a:visited, a:hover, a:active{color:var(--fg);text-decoration:none}
+    p a, .section-sub a, .small a{border-bottom:none;text-decoration:none}
+    p a:hover, .section-sub a:hover, .small a:hover{opacity:.9}
+
+    /* Fixed NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    .nav .inner{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.02em}
+    .nav a{margin-left:18px;font-size:.95rem}
+
+    /* Masthead banner */
+    .masthead{margin-top:var(--navH); /* offset for fixed nav */ text-align:center;padding:14px 20px;
+      font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+      /* remove extra rule so there aren't two thin lines */
+      .masthead{border-bottom:none}
+
+    /* Buttons: outline-only, couture */
+    .btn, a.btn{display:inline-block;padding:.82rem 1.1rem;border:1px solid var(--royal);border-radius:12px;
+      font-weight:600;letter-spacing:.02em;transition:.25s ease;background:transparent !important;color:var(--fg)}
+    .btn:hover, a.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+    .btn-primary, a.btn-primary{border-color:var(--royal);background:transparent !important;color:var(--fg)}
+    .btn-ghost, a.btn-ghost{border-color:var(--royal);background:transparent !important;color:var(--fg)}
+
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* HERO */
+    header.hero{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 1rem 3rem}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(44px,7vw,96px);
+      line-height:1.02;margin:0 0 .35em;letter-spacing:-.008em}
+    .hero h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--muted);font-size:clamp(16px,2.6vw,22px);
+      margin:0 0 2rem;letter-spacing:.01em;font-style:italic}
+    .hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
+
+    /* Sections */
+    section{padding:64px 0;border-top:1px solid var(--line)}
+    .section-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(22px,3.2vw,36px);
+      letter-spacing:.01em;margin:0 0 18px}
+    .section-sub{color:var(--muted);max-width:780px}
+
+    /* Poem blocks (monologue & mission) */
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+    .mono .card{padding:30px}
+    .poem{font-size:clamp(15px,2.2vw,18px)}
+    .poem .line{display:block;margin:.22rem 0;line-height:1.9}
+
+    /* Grids */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .namegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+
+    .card h3{margin:.1rem 0 .5rem;font-size:1.02rem;font-weight:800;font-family:'Manrope',sans-serif;letter-spacing:.02em}
+    .price{font-weight:800;font-size:1.12rem;margin:.25rem 0 .45rem}
+    .muted{color:var(--muted)}
+
+    .flex{display:flex;gap:.5rem;flex-wrap:wrap}
+    .stack{display:flex;flex-direction:column;gap:.6rem}
+
+    /* Force two-button rows side-by-side consistently */
+    .actions{display:flex;gap:12px;flex-wrap:nowrap}
+    .actions .btn{flex:1;text-align:center}
+
+    footer{padding:40px 0;color:#8a8a8a;text-align:center;font-size:.9rem}
+    .small{font-size:.9rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="inner">
+      <div class="brand">Black Flag Discovery</div>
+      <div>
+        <a href="#origin">Monologue</a>
+        <a href="#mission">Mission</a>
+        <a href="#work">Work With Us</a>
+        <a href="#donate">Donate</a>
+        <a href="#astronaut">Astronaut</a>
+        <a href="#naming">Legacy</a>
+        <a href="#support">Support</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MASTHEAD -->
+  <div class="masthead">BLACK FLAG DISCOVERY</div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <h1>Ex Igne Ad Astra</h1>
+      <h2>From Fire, The Stars.</h2>
+      <div class="cta">
+        <a href="#donate" class="btn btn-primary">Support the Mission</a>
+        <a href="#naming" class="btn btn-ghost">View Legacy Catalogue</a>
+        <a href="#mission" class="btn btn-ghost">Read the Mission</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ORIGIN (Monologue) -->
+  <section class="mono" id="origin">
+    <div class="container">
+      <div class="section-title">The Origin</div>
+      <div class="card">
+        <div class="poem">
+          <span class="line">I don’t come from aerospace.</span>
+          <span class="line">I come from punishment.</span>
+          <span class="line">From hardships most can't imagine.</span>
+          <span class="line">I come from fire.</span>
+
+          <span class="line">I was born in the shop.</span>
+          <span class="line">I learned how to build anything.</span>
+          <span class="line">To fix anything.</span>
+          <span class="line">To make anything better than it was before.</span>
+
+          <span class="line">I was forged on the road.</span>
+          <span class="line">It's more home than home.</span>
+          <span class="line">NHRA, CARS, ARCA/CRA, UMP.</span>
+          <span class="line">Blacktop and dirt.</span>
+          <span class="line">Isolation.</span>
+          <span class="line">Failure in front of millions.</span>
+          <span class="line">Pain.</span>
+          <span class="line">And pleasure.</span>
+
+          <span class="line">I know what it takes to earn respect of competitors.</span>
+          <span class="line">Men and women I grew up idolizing on television.</span>
+          <span class="line">Men and women who watched me work so fucking hard</span>
+          <span class="line">They called me Team No Sleep.</span>
+          <span class="line">Team Animal.</span>
+
+          <span class="line">I was the one who stayed up all night at the track—</span>
+          <span class="line">While they slept.</span>
+
+          <span class="line">The one who would not stop.</span>
+
+          <span class="line">I know hardship by my own hand.</span>
+          <span class="line">I know failure of myself.</span>
+          <span class="line">I know loss on a scale I wish upon no one.</span>
+          <span class="line">I know the very edges of what humanity—and this life—have to offer.</span>
+          <span class="line">I know success.</span>
+          <span class="line">I know the fire.</span>
+          <span class="line">I have a habit of making my dreams come true.</span>
+          <span class="line">That’s why this is possible for me.</span>
+
+          <span class="line">I know how to take a dream and manifest it—</span>
+          <span class="line">To make it an emergent property of materials and sheer fucking will.</span>
+          <span class="line">I know how to make a man survive anything.</span>
+          <span class="line">I can do anything.</span>
+
+          <span class="line">This is the first solo-designed, solo-built, trans-planetary-class rocket engine.</span>
+          <span class="line">Conceived by me.</span>
+          <span class="line">Built with my own hands.</span>
+
+          <span class="line">This is the first private design and build of a trans-planetary-class rocket—</span>
+          <span class="line">Born in the void between love and rage.</span>
+
+          <span class="line">This is the first fully private mission of its kind.</span>
+          <span class="line">This is my legacy.</span>
+
+          <span class="line">This engine is Belka.</span>
+          <span class="line">This rocket is Heretic.</span>
+          <span class="line">This company is Black Flag Discovery.</span>
+          <span class="line">The payload is Earth life.</span>
+
+          <span class="line">And we are going to Mars.</span>
+
+          <span class="line">Ex Igne Ad Astra — From Fire, The Stars.</span>
+
+          <span class="line">I am Alexander David Tutt.</span>
+          <span class="line">Join me.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="container">
+      <div class="section-title">The Mission</div>
+      <div class="card">
+        <div class="poem">
+          <span class="line">Heretic 1 is the first privately built, uncrewed, trans-planetary-class rocket.</span>
+          <span class="line">Stage 1: Belka — five engines, 50 kN each.</span>
+          <span class="line">Upper stages: vacuum engines at 20 kN and 10 kN.</span>
+          <span class="line">Payload: six Earth-life micro-greenhouses.</span>
+          <span class="line">A Mars Ascent Vehicle.</span>
+          <span class="line">An Earth Entry Vehicle.</span>
+          <span class="line">Objective: return Martian regolith to Earth.</span>
+          <span class="line">Proof: one shop, with enough discipline and support, can design, build, fire, and fly the future.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK WITH US -->
+  <section id="work">
+    <div class="container">
+      <div class="section-title">Work With Us</div>
+      <div class="card">
+        <p class="section-sub">
+          This isn’t a one-off mission. Black Flag Discovery is building the factories, processes, and IP for a commercial future.
+          We need more than engineers. We need builders. Thinkers. Operators. Auditors. Makers. Sellers. Accountants. Designers. Vendors. People who won’t stop.
+          If you think you’re not “aerospace material,” maybe you are. Let’s talk.
+          Universities, labs, tech-transfer offices—let’s talk. Vendors who want to bid into our supply chain—let’s talk.
+          Everything we build is commercial. Every component has a path to market. Vendors compete for first refusal and long-term commercialization.
+          If you’ve got the portfolio, the will, or the hunger—reach out.
+        </p>
+        <div class="flex" style="margin-top:14px">
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Apply%20to%20Join%20%28Resume%2FPortfolio%29&body=Name%3A%0ARole%20%28or%20what%20you%20do%29%3A%0ALinks%20%28portfolio%2Fgithub%2Fsite%29%3A%0ALocation%3A%0AWhy%20this%20house%3A">Apply to Join</a>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Vendor%20%2F%20University%20Inquiry&body=Organization%3A%0ARole%3A%0AOffer%20%2F%20Capability%3A%0AWebsite%3A%0ANote%3A">Vendor & University Inquiries</a>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=General%20Contact&body=Name%3A%0AReason%3A%0A">General Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate">
+    <div class="container">
+      <div class="section-title">Fuel the Fire</div>
+      <p class="section-sub">One-time and weekly options. Links are placeholders—replace with your Stripe Payment Links.</p>
+      <div class="grid">
+        <div class="card stack">
+          <h3>Spark</h3>
+          <div class="price">$10</div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_SPARK_ONETIME">One-time</a>
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_SPARK_WEEKLY">Weekly</a>
+          </div>
+          <div class="muted">Ignition. The first flicker.</div>
+        </div>
+
+        <div class="card stack">
+          <h3>Flame</h3>
+          <div class="price">$50</div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_FLAME_ONETIME">One-time</a>
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_FLAME_WEEKLY">Weekly</a>
+          </div>
+          <div class="muted">Heat that bends steel.</div>
+        </div>
+
+        <div class="card stack">
+          <h3>Inferno</h3>
+          <div class="price">$250</div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_INFERNO_ONETIME">One-time</a>
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_INFERNO_WEEKLY">Weekly</a>
+          </div>
+          <div class="muted">Metal, wire, hands, and will.</div>
+        </div>
+
+        <div class="card stack">
+          <h3>Thrust</h3>
+          <div class="price">$1,000+</div>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Wire%2FACH%20Instructions%20%28Thrust%20Tier%29&body=Amount%3A%0AName%3A%0ACity%2FState%3A%0AIntended%20use%20%28naming%2Fgeneral%29%3A">Request Wire/ACH</a>
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_THRUST_WEEKLY">Weekly Support</a>
+          </div>
+          <div class="muted">Serious support routes around fees.</div>
+        </div>
+
+        <div class="card stack">
+          <h3>Apogee</h3>
+          <div class="price">$5,000+</div>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Wire%20or%20Crypto%20Transfer%20%28Apogee%29&body=Amount%3A%0ACurrency%3A%20%28USD%2FUSDC%2FBTC%2FETH%29%0AName%3A%0ACity%2FState%3A%0ANote%3A">Wire / Crypto</a>
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_APOGEE_WEEKLY">Weekly Support</a>
+          </div>
+          <div class="muted">Change the mission’s fate.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD THE FIRST ASTRONAUT -->
+  <section id="astronaut">
+    <div class="container">
+      <div class="section-title">Build the First Astronaut</div>
+      <p class="section-sub">This mission is uncrewed. We don’t only build flight hardware—we build astronauts. From day one, every teammate trains toward flight-rating. I hold the line first. Until the public BOM is live, you can fuel the human build here.</p>
+      <div class="grid">
+        <div class="card stack">
+          <h3>Feed the Flight Crew</h3>
+          <div class="price">$30 / day</div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_FEED_ONETIME">One-time</a>
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_FEED_WEEKLY">Weekly</a>
+          </div>
+          <div class="muted">Clean food, hydration, electrolytes.</div>
+        </div>
+
+        <div class="card stack">
+          <h3>Vitals & Baseline</h3>
+          <div class="price">$100 / day</div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_VITALS_ONETIME">One-time</a>
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_VITALS_WEEKLY">Weekly</a>
+          </div>
+          <div class="muted">Fuel + vitamins + small essentials to keep the system sharp.</div>
+        </div>
+
+        <div class="card stack">
+          <h3>Train the Astronaut</h3>
+          <div class="price">$200 / day</div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_TRAIN_ONETIME">One-time</a>
+            <a class="btn btn-ghost" href="https://buy.stripe.com/REPLACE_TRAIN_WEEKLY">Weekly</a>
+          </div>
+          <div class="muted">Coaching, recovery, applied practice — human hardware.</div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:14px">
+        Coming soon: monthly line items for labs/testing; quiet & care (housing/health/phone/services); flight training.
+        Until then, <a href="mailto:contact@igne.dev?subject=Sponsor%20a%20Specific%20Item&body=Item%20you%20want%20to%20cover%3A%0AOne-time%20or%20recurring%3A%0ANote%3A">sponsor a specific item</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSE ACCESS -->
+  <section id="access">
+    <div class="container">
+      <div class="section-title">House Access</div>
+      <div class="namegrid">
+        <div class="card stack">
+          <h3>Atelier Channel</h3>
+          <div class="price">$50 / week</div>
+          <p class="muted">Private group channel for build dispatches, behind-the-scenes cuts, and early drops. Granted automatically for $50/week supporters or $1k+ one-time.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Atelier%20Channel%20Access&body=Support%20Link%20Used%3A%0AName%3A%0AHandle%20%28Threads%2FTelegram%2FSignal%29%3A">Request Access</a>
+        </div>
+        <div class="card stack">
+          <h3>Patron Line</h3>
+          <div class="price">$1,000 / week</div>
+          <p class="muted">Direct number + one 60-minute call per month. Optional credit: Executive Patron.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Patron%20Line%20Enrollment&body=Name%3A%0ACompany%3A%0AWeekly%20Support%3A%20%241000%20%2B%0APhone%3A%0APreferences%3A">Start Enrollment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGACY CATALOGUE -->
+  <section id="naming">
+    <div class="container">
+      <div class="section-title">The Legacy Catalogue</div>
+      <p class="section-sub">These aren’t ad slots. These are permanent names etched into aerospace history. Application required for legacy tiers.</p>
+      <div class="namegrid">
+        <div class="card stack">
+          <h3>Mission Name</h3>
+          <div class="price">$5,000,000</div>
+          <p class="muted">One mission. One name. Immortalized across press, film, and archives.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BMission%20Name%5D&body=Name%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+        <div class="card stack">
+          <h3>EEV Capsule</h3>
+          <div class="price">$3,000,000</div>
+          <p class="muted">First private Martian return. Your name on the payload that comes home.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BEEV%20Capsule%5D&body=Name%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+        <div class="card stack">
+          <h3>Greenhouse (x5 available)</h3>
+          <div class="price">$500,000 each</div>
+          <p class="muted">Fly Earth life to Mars. Return it to a museum on your continent. (North America reserved.)</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BGreenhouse%5D&body=Continent%3A%0AName%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+        <div class="card stack">
+          <h3>Heretic Rocket</h3>
+          <div class="price">$1,000,000</div>
+          <p class="muted">Vehicle name carried into media, history, and lettering.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BHeretic%20Rocket%5D&body=Name%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+        <div class="card stack">
+          <h3>Belka Cluster / 50 kN Engines</h3>
+          <div class="price">$150,000 each or $750,000 set</div>
+          <p class="muted">Claim a single engine or the full fire.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BBelka%20Engine%5D&body=Single%20or%20Set%3A%0AName%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+        <div class="card stack">
+          <h3>MAV (Mars Ascent Vehicle)</h3>
+          <div class="price">$500,000</div>
+          <p class="muted">Carries life and sample up to rendezvous. The ascent begins here.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BMAV%5D&body=Name%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+        <div class="card stack">
+          <h3>Stage 2 / Stage 3 Engines</h3>
+          <div class="price">$250,000 – $500,000</div>
+          <p class="muted">Final burns with names that echo.</p>
+          <a class="btn btn-primary" href="mailto:contact@igne.dev?subject=Naming%20Rights%20%5BUpper%20Stages%5D&body=Stage%3A%0AName%2FOrg%3A%0AOffer%3A%0AMessage%3A">Apply</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT CHANNELS -->
+  <section id="support">
+    <div class="container">
+      <div class="section-title">Serious Support, Serious Channels</div>
+      <p class="section-sub">For contributions above $1,000—especially naming rights or legacy support—we accept bank wires, ACH, FedNow, and crypto (USDC/ETH/BTC). Stripe is used below $1,000 due to fees.</p>
+      <div class="grid">
+        <div class="card stack">
+          <h3>Wire / ACH</h3>
+          <p class="muted">Domestic & international. We'll reply with routing instructions.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Request%20Wire%2FACH%20Instructions&body=Amount%3A%0APurpose%20%28General%2FNaming%29%3A%0AName%3A%0ACity%2FState%3A">Request Instructions</a>
+        </div>
+        <div class="card stack">
+          <h3>Crypto</h3>
+          <p class="muted">USDC, ETH, BTC. We can provide wallets upon request.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Crypto%20Transfer&body=Amount%3A%0AToken%3A%0ANetwork%3A%0AName%3A">Get Wallets</a>
+        </div>
+        <div class="card stack">
+          <h3>In-Kind Support</h3>
+          <p class="muted">Tools, materials, consumables, shop space. We'll route to suppliers where possible.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=In-Kind%20Support&body=Item%2FService%3A%0AQuantity%3A%0ASupplier%20%28if%20known%29%3A%0ANote%3A">Offer Support</a>
+        </div>
+        <div class="card stack">
+          <h3>Accredited Investors</h3>
+          <p class="muted">506(c) inquiries welcome. State filings may be netted from accepted funds.</p>
+          <a class="btn btn-ghost" href="mailto:contact@igne.dev?subject=Accredited%20Investor%20Inquiry&body=Name%3A%0AState%3A%0AEntity%3A%0AAmount%3A%0ANote%3A">Investor Inquiry</a>
+        </div>
+      </div>
+      <p class="small" style="margin-top:18px">Contributions are not securities. No returns or ownership unless under a separate investor agreement.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="margin-bottom:10px;">
+      <a href="https://instagram.com/alexandertutt" target="_blank" rel="noopener">Instagram</a>
+      &nbsp;•&nbsp;
+      <a href="https://threads.net/alexandertutt" target="_blank" rel="noopener">Threads</a>
+    </div>
+    <div class="container">
+      &copy; Black Flag Discovery — All contributions are non-refundable and not tax-deductible. This is not a financial product.
+    </div>
+  </footer>
+</body>
+</html>
